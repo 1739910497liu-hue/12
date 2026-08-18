@@ -1,0 +1,36 @@
+generator_kind: random
+#掩码生成参数
+mask_generator_kwargs:
+  irregular_proba: 1
+  irregular_kwargs:
+    min_times: 3
+    max_times: 8
+    max_width: 140
+    max_angle: 4
+    max_len: 240
+
+  box_proba: 0.8
+  box_kwargs:
+    margin: 10
+    bbox_min_size: 80
+    bbox_max_size: 220
+    max_times: 5
+    min_times: 2
+
+  segm_proba: 0
+  squares_proba: 0
+
+  variants_n: 5
+  min_mask_area: 0.15
+  max_mask_area: 0.65
+  max_attempts: 20
+
+max_masks_per_image: 1
+
+cropping:
+  out_min_size: 256
+  handle_small_mode: upscale
+  out_square_crop: True
+  crop_min_overlap: 1
+
+max_tamper_area: 0.5

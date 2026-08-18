@@ -1,0 +1,155 @@
+model:
+  base_learning_rate: 5.0e-05
+  target: ldm.models.diffusion.ddpm.LatentDiffusion
+  params:
+    linear_start: 0.0015
+    linear_end: 0.0195
+    num_timesteps_cond: 1
+    log_every_t: 200
+    timesteps: 1000
+    first_stage_key: image
+    cond_stage_key: caption
+    image_size: 32
+    channels: 4
+    cond_stage_trainable: false
+    conditioning_key: crossattn
+    monitor: val/loss_simple_ema
+    scale_by_std: true
+    use_ema: true
+
+    scheduler_config:
+      target: ldm.lr_scheduler.LambdaLinearScheduler
+      params:
+        warm_up_steps: [10000]
+        cycle_lengths: [10000000000000]
+        f_start: [1.e-6]
+        f_max: [1.]
+        f_min: [1.]
+
+    unet_config:
+      target: ldm.modules.diffusionmodules.openaimodel.UNetModel
+      params:
+        image_size: 32
+        in_channels: 4
+        out_channels: 4
+        model_channels: 192
+        attention_resolutions: [1, 2, 4]
+        num_res_blocks: 2
+        channel_mult: [1, 2, 4, 4]
+        num_heads: 8
+        use_spatial_transformer: true
+        transformer_depth: 1
+        context_dim: 512
+        use_checkpoint: true
+        legacy: false
+
+    first_stage_config:
+      target: ldm.models.autoencoder_large2.VQModelWithMask
+      params:
+        ckpt_path: logs/Base/2026-07-28T21-55-16_autoencoder_kl_32x32x4_large2_train/checkpoints/last.ckpt
+        embed_dim: 4
+        n_embed: 16384
+        ddconfig:
+          double_z: false
+          z_channels: 4
+          resolution: 256
+          in_channels: 3
+          out_ch: 3
+          ch: 128
+          ch_mult: [1, 2, 4, 4]
+          num_res_blocks: 2
+          attn_resolutions: []
+          dropout: 0.0
+        lossconfig:
+          target: torch.nn.Identity
+
+    cond_stage_config:
+      target: ldm.modules.encoders.modules.FrozenCLIPEmbedder
+      params:
+        version: /root/autodl-tmp/TIGLDM600/TIGLDM6000/models/clip/clip-vit-base-patch32
+        max_length: 77
+        freeze: true
+        local_files_only: true
+
+data:
+  target: main.DataModuleFromConfig
+  params:
+    batch_size: 4
+    num_workers: 4
+    wrap: false
+    train:
+      target: ldm.data.imagenet.SS304SRTrain
+      params:
+        data_root: datasets/ss304/train
+        size: 256
+        image_read_mode: resize
+        degradation: pil_nearest
+        Cf_r: 0.0
+        mask_mode: ellipse
+        default_caption: SS304 TIG welding heat source image
+        caption_from_filename: false
+        caption_file: datasets/text/train_text.json
+        ellipse_params:
+          random_center: true
+          min_radius_x: 42.0
+          max_radius_x: 110.0
+          min_radius_y: 28.0
+          max_radius_y: 88.0
+          random_angle: true
+          angle_min_deg: 0.0
+          angle_max_deg: 360.0
+    validation:
+      target: ldm.data.imagenet.SS304SRValidation
+      params:
+        data_root: datasets/ss304/valid
+        size: 256
+        image_read_mode: resize
+        degradation: pil_nearest
+        Cf_r: 0.0
+        mask_mode: ellipse
+        default_caption: SS304 TIG welding heat source image
+        caption_from_filename: false
+        caption_file: datasets/text/valid.json
+        ellipse_params:
+          random_center: true
+          min_radius_x: 42.0
+          max_radius_x: 110.0
+          min_radius_y: 28.0
+          max_radius_y: 88.0
+          random_angle: true
+          angle_min_deg: 0.0
+          angle_max_deg: 360.0
+
+lightning:
+  modelcheckpoint:
+    target: pytorch_lightning.callbacks.ModelCheckpoint
+    params:
+      filename: "{epoch:06}"
+      monitor: epoch
+      mode: max
+      save_top_k: 2
+      save_last: true
+
+  callbacks:
+    image_logger:
+      target: main.ImageLogger
+      params:
+        batch_frequency: 5000
+        max_images: 8
+        increase_log_steps: false
+        disabled: false
+        log_images_kwargs:
+          N: 8
+          n_row: 4
+          sample: true
+          ddim_steps: 100
+          ddim_eta: 0.0
+          quantize_denoised: false
+          inpaint: false
+          plot_denoise_rows: false
+          plot_progressive_rows: false
+          plot_diffusion_rows: false
+
+  trainer:
+    benchmark: true
+    accumulate_grad_batches: 2

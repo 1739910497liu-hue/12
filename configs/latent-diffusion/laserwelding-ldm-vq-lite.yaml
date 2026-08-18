@@ -1,0 +1,119 @@
+model:
+  base_learning_rate: 5.0e-05
+  target: ldm.models.diffusion.ddpm.LatentDiffusion
+  params:
+    linear_start: 0.0015
+    linear_end: 0.0195
+    num_timesteps_cond: 1
+    log_every_t: 200
+    timesteps: 1000
+    first_stage_key: image
+    image_size: 32
+    channels: 4
+    monitor: val/loss_simple_ema
+    use_ema: false
+
+    unet_config:
+      target: ldm.modules.diffusionmodules.openaimodel.UNetModel
+      params:
+        image_size: 32
+        in_channels: 4
+        out_channels: 4
+        model_channels: 128
+        attention_resolutions: [4, 2, 1]
+        num_res_blocks: 1
+        channel_mult: [1, 2, 4, 4]
+        num_head_channels: 32
+        use_checkpoint: true
+
+    first_stage_config:
+      target: ldm.models.autoencoder_large2.VQModelWithMask
+      params:
+        ckpt_path: logs/你的laserwelding第一阶段目录/checkpoints/last.ckpt
+        embed_dim: 4
+        n_embed: 16384
+        ddconfig:
+          double_z: false
+          z_channels: 4
+          resolution: 256
+          in_channels: 3
+          out_ch: 3
+          ch: 128
+          ch_mult: [1, 2, 4, 4]
+          num_res_blocks: 2
+          attn_resolutions: []
+          dropout: 0.0
+        lossconfig:
+          target: torch.nn.Identity
+
+    cond_stage_config: __is_unconditional__
+
+data:
+  target: main.DataModuleFromConfig
+  params:
+    batch_size: 1
+    num_workers: 1
+    wrap: true
+    train:
+      target: ldm.data.imagenet.LaserWeldingSRTrain
+      params:
+        data_root: H:/数据集/laserwelding/train
+        label_json: H:/数据集/laserwelding/train/train.json
+        size: 256
+        image_read_mode: resize
+        degradation: pil_nearest
+        Cf_r: 0.0
+        mask_mode: ellipse
+        ellipse_params:
+          random_center: true
+          min_radius_x: 42.0
+          max_radius_x: 110.0
+          min_radius_y: 28.0
+          max_radius_y: 88.0
+          random_angle: true
+          angle_min_deg: 0.0
+          angle_max_deg: 360.0
+    validation:
+      target: ldm.data.imagenet.LaserWeldingSRValidation
+      params:
+        data_root: H:/数据集/laserwelding/validation
+        label_json: H:/数据集/laserwelding/validation/validation.json
+        size: 256
+        image_read_mode: resize
+        degradation: pil_nearest
+        Cf_r: 0.0
+        mask_mode: ellipse
+        ellipse_params:
+          random_center: true
+          min_radius_x: 42.0
+          max_radius_x: 110.0
+          min_radius_y: 28.0
+          max_radius_y: 88.0
+          random_angle: true
+          angle_min_deg: 0.0
+          angle_max_deg: 360.0
+
+lightning:
+  callbacks:
+    image_logger:
+      target: main.ImageLogger
+      params:
+        batch_frequency: 5000
+        max_images: 4
+        increase_log_steps: false
+        disabled: false
+        log_images_kwargs:
+          N: 4
+          n_row: 2
+          sample: true
+          ddim_steps: 50
+          ddim_eta: 0.0
+          quantize_denoised: false
+          inpaint: false
+          plot_denoise_rows: false
+          plot_progressive_rows: false
+          plot_diffusion_rows: false
+
+  trainer:
+    benchmark: true
+    accumulate_grad_batches: 8
