@@ -1,0 +1,2 @@
+datasets/ss304/train/161214-143711-run2/image-1438.png	SyntaxError: broken PNG file (bad header checksum in b'IDAT')
+datasets/ss304/valid/160708-115546-50mmLens 200A w.s.Lev16 try joining 5mm Plate/image-0364.png	SyntaxError: broken PNG file (bad header checksum in b'IDAT')
