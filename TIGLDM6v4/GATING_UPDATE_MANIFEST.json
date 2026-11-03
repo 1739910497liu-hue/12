@@ -1,0 +1,14 @@
+{
+  "purpose": "Decoder gating ablation: G1 fixed 0.5, G2 learned scalar, G3 legacy binary mask",
+  "files": {
+    "ldm/heat_source/models.py": "cd1087d509bc3d4215fee9bacdba210ea536c37f94238ac6e948a7627ab8d199",
+    "ldm/heat_source/training.py": "8c0fd309eec6c1649590f457e31f0eebbfe2bc3dda2b4c74572aa9265716f422",
+    "configs/heat_source_gating/g1_fixed.json": "cef5d06af2695d573f7df839e4c7f9d4612c1527d4cf6873b83cb6e7ef879d09",
+    "configs/heat_source_gating/g2_scalar.json": "7d6f7b899c4ad031a78b3ed847c34b37170bdb098a44c8eb32eac526d9448460",
+    "configs/heat_source_gating/study.json": "1172a2b51e33c33bb83898efb0d883813626f0e84ff03b4cdfc35a778decacb8",
+    "scripts/heat_source_gating_commands.sh": "83c9661cedeccee029e10fdbefc4ac9eb5d80eb9c41702c5d747f3509edfbb8c",
+    "scripts/evaluate_heat_source_gating.py": "4d55004f992a316e94fdf5fd64b1c177e912447d4cea6f1300f0c802563e7c99",
+    "tests/test_heat_source_gating.py": "60de6971d89a8d7524f476bbc68c2ba776d3e38117d1df000ad9061c255bdee1",
+    "docs/heat_source_gating.md": "ee789734308bb1de81bc05b658ebb1eeea0801067b7a648f54b091cbd660e1d9"
+  }
+}

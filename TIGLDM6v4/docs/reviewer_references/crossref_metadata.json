@@ -1,0 +1,130 @@
+[
+    {
+        "doi":  "10.1109/TMM.2025.3632631",
+        "title":  "DiffW: Multi-Encoder Based on Conditional Diffusion Model for Robust Image Watermarking",
+        "publisher":  "Institute of Electrical and Electronics Engineers (IEEE)",
+        "journal":  "IEEE Transactions on Multimedia",
+        "published":  {
+                          "date-parts":  [
+                                             [
+                                                 2026
+                                             ]
+                                         ]
+                      },
+        "authors":  [
+                        "Ting Luo",
+                        "Renzhi Hu",
+                        "Zhouyan He",
+                        "Gangyi Jiang",
+                        "Haiyong Xu",
+                        "Yang Song",
+                        "Chin-Chen Chang"
+                    ],
+        "URL":  "https://doi.org/10.1109/tmm.2025.3632631",
+        "volume":  "28",
+        "page":  "837-852",
+        "source":  "https://api.crossref.org/works/10.1109/TMM.2025.3632631"
+    },
+    {
+        "doi":  "10.1109/TETCI.2024.3386916",
+        "title":  "WFormer: A Transformer-Based Soft Fusion Model for Robust Image Watermarking",
+        "publisher":  "Institute of Electrical and Electronics Engineers (IEEE)",
+        "journal":  "IEEE Transactions on Emerging Topics in Computational Intelligence",
+        "published":  {
+                          "date-parts":  [
+                                             [
+                                                 2024,
+                                                 12
+                                             ]
+                                         ]
+                      },
+        "authors":  [
+                        "Ting Luo",
+                        "Jun Wu",
+                        "Zhouyan He",
+                        "Haiyong Xu",
+                        "Gangyi Jiang",
+                        "Chin-Chen Chang"
+                    ],
+        "URL":  "https://doi.org/10.1109/tetci.2024.3386916",
+        "volume":  "8",
+        "page":  "4179-4196",
+        "source":  "https://api.crossref.org/works/10.1109/TETCI.2024.3386916"
+    },
+    {
+        "doi":  "10.1016/j.neucom.2024.128295",
+        "title":  "CAISFormer: Channel-wise attention transformer for image steganography",
+        "publisher":  "Elsevier BV",
+        "journal":  "Neurocomputing",
+        "published":  {
+                          "date-parts":  [
+                                             [
+                                                 2024,
+                                                 10
+                                             ]
+                                         ]
+                      },
+        "authors":  [
+                        "Yuhang Zhou",
+                        "Ting Luo",
+                        "Zhouyan He",
+                        "Gangyi Jiang",
+                        "Haiyong Xu",
+                        "Chin-Chen Chang"
+                    ],
+        "URL":  "https://doi.org/10.1016/j.neucom.2024.128295",
+        "volume":  "603",
+        "page":  "128295",
+        "source":  "https://api.crossref.org/works/10.1016/j.neucom.2024.128295"
+    },
+    {
+        "doi":  "10.1016/j.automatica.2022.110670",
+        "title":  "Hybrid variable monitoring: An unsupervised process monitoring framework with binary and continuous variables",
+        "publisher":  "Elsevier BV",
+        "journal":  "Automatica",
+        "published":  {
+                          "date-parts":  [
+                                             [
+                                                 2023,
+                                                 1
+                                             ]
+                                         ]
+                      },
+        "authors":  [
+                        "Min Wang",
+                        "Donghua Zhou",
+                        "Maoyin Chen"
+                    ],
+        "URL":  "https://doi.org/10.1016/j.automatica.2022.110670",
+        "volume":  "147",
+        "page":  "110670",
+        "source":  "https://api.crossref.org/works/10.1016/j.automatica.2022.110670"
+    },
+    {
+        "doi":  "10.1007/s00170-025-16672-8",
+        "title":  "A study on the enhancement method for seam extraction in teachless welding robots based on a multichannel feature fusion network",
+        "publisher":  "Springer Science and Business Media LLC",
+        "journal":  "The International Journal of Advanced Manufacturing Technology",
+        "published":  {
+                          "date-parts":  [
+                                             [
+                                                 2025,
+                                                 10,
+                                                 13
+                                             ]
+                                         ]
+                      },
+        "authors":  [
+                        "Qi Wang",
+                        "Hun Guo",
+                        "Chen Yang",
+                        "Yafeng He",
+                        "Xi Chen",
+                        "Bo Xu"
+                    ],
+        "URL":  "https://doi.org/10.1007/s00170-025-16672-8",
+        "volume":  "141",
+        "page":  "647-660",
+        "source":  "https://api.crossref.org/works/10.1007/s00170-025-16672-8"
+    }
+]

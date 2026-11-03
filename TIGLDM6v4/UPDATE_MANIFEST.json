@@ -1,0 +1,49 @@
+{
+  "purpose": "extend paper spatial-Gate latent ablation to factor32 with explicit four-level diffusion U-Net",
+  "changed_files": [
+    "ldm/heat_source/models.py",
+    "scripts/heat_source_latents.py",
+    "docs/heat_source_latents.md",
+    "configs/heat_source_latents/study.json",
+    "configs/heat_source_latents/paper_gate_f32.json"
+  ],
+  "unchanged_dependencies": [
+    "ldm/heat_source/data.py",
+    "ldm/heat_source/training.py",
+    "ldm/heat_source/diagnostics.py",
+    "configs/heat_source_paper_gate/paper_gate_spatial.json",
+    "configs/heat_source_latents/paper_gate_f4.json",
+    "configs/heat_source_latents/paper_gate_f8.json",
+    "configs/heat_source_latents/paper_gate_f16.json"
+  ],
+  "sha256": {
+    "ldm/heat_source/models.py": "b8c90bdc96e0c05f7f0c1e534cbef622aea6663767f7237d1dd6e22fc79a15e7",
+    "scripts/heat_source_latents.py": "02d5ed271ae067b2146d368e136f2e4520935f7dbd6887a6cd96f86f68ed992d",
+    "docs/heat_source_latents.md": "52c7165b81409f10532d8503cabe0fc171521c4d42378298b3b06cab06ce35ad",
+    "configs/heat_source_latents/study.json": "736a81deeb77851ce545b3766d7207ac6466243b6a694d72c73d21ac65ef8bf9",
+    "configs/heat_source_latents/paper_gate_f32.json": "be765445024004f83047fcc02d70de234a7f200d55c7cc5487c2c18d98884fe7",
+    "ldm/heat_source/data.py": "d76ef97c4cef68534a8788b500fc73a4634880d9d4b94673369f04619842ff2f",
+    "ldm/heat_source/training.py": "b62fa537478413f73181d665fdd940a29878c864c07c4b4058dfabdc31d9238a",
+    "ldm/heat_source/diagnostics.py": "c0e63656bcf1ab5f30bbf46fb2219c934d70f212893447ca1e6145c6229a8e4a",
+    "configs/heat_source_paper_gate/paper_gate_spatial.json": "4178b4bed60e568fe15fea033f912e6eba8f034358373e13d75a9b7debf30122",
+    "configs/heat_source_latents/paper_gate_f4.json": "b32358d0dbc42875c20d91d7f0e7990275b464aac11991238d14909803df5c20",
+    "configs/heat_source_latents/paper_gate_f8.json": "e27cf76e7ae029e7b8e5ac7c9f58d6c310e7f9de261ba202e9fc89dbd7a7662e",
+    "configs/heat_source_latents/paper_gate_f16.json": "87040d7f94c706e1a5429066c1cb43964c7a99b05f3f06571d036d6490b042b8",
+    "VALIDATION.txt": "c3b2a6131e6914b2bedfc29793eece84a03a0f7964a0cd1ac7bf688e6c694603",
+    "MODEL_CPU_REPORT.json": "bcd3830613010dd44e7c13ac5757093c4b1de9b3054344f35e789e537f6b3713"
+  },
+  "before_sha256": {
+    "ldm/heat_source/models.py": "d430cc565cf306b51201a9cf6f920d6b03a3bcdfc17d789c3ee453fb94c4be70",
+    "scripts/heat_source_latents.py": "b6dad06c67d8c4985a3771fbe52b3cc2ec83211a67dbe0d2325bbb3ce00365aa",
+    "docs/heat_source_latents.md": "162c859422de8a879fc2773e4139960dba0c4bc6c85d6f66ce4bd827b2e84b8f",
+    "configs/heat_source_latents/study.json": "8f137571db4b15a3e0a9d68fa39ea901cebf77477e14f698a95e7f40f586a0c1",
+    "configs/heat_source_latents/paper_gate_f32.json": null,
+    "ldm/heat_source/data.py": "d76ef97c4cef68534a8788b500fc73a4634880d9d4b94673369f04619842ff2f",
+    "ldm/heat_source/training.py": "b62fa537478413f73181d665fdd940a29878c864c07c4b4058dfabdc31d9238a",
+    "ldm/heat_source/diagnostics.py": "c0e63656bcf1ab5f30bbf46fb2219c934d70f212893447ca1e6145c6229a8e4a",
+    "configs/heat_source_paper_gate/paper_gate_spatial.json": "4178b4bed60e568fe15fea033f912e6eba8f034358373e13d75a9b7debf30122",
+    "configs/heat_source_latents/paper_gate_f4.json": "b32358d0dbc42875c20d91d7f0e7990275b464aac11991238d14909803df5c20",
+    "configs/heat_source_latents/paper_gate_f8.json": "e27cf76e7ae029e7b8e5ac7c9f58d6c310e7f9de261ba202e9fc89dbd7a7662e",
+    "configs/heat_source_latents/paper_gate_f16.json": "87040d7f94c706e1a5429066c1cb43964c7a99b05f3f06571d036d6490b042b8"
+  }
+}

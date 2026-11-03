@@ -1,0 +1,8 @@
+{
+  "purpose": "Restore forward autocast during gradient checkpoint recomputation using native non-reentrant checkpointing",
+  "files": {
+    "ldm/modules/diffusionmodules/util.py": "e2b8c65b5bc324da84698b4d239ed122860063704c31fb777c3435265433b541",
+    "tests/test_heat_source_checkpoint.py": "0d7b45d647fd8d836059a42015bfeb7ef295ac66f573299c7e49705a9f8631f5",
+    "docs/stage2_bf16_fix.md": "0e9fa8181e6c1d43614b7b16d75ee9a250a285180b41b1109584d65b37a06030"
+  }
+}

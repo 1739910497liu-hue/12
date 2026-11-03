@@ -1,0 +1,22 @@
+{
+  "protocol": "reviewer_v2",
+  "seeds": [
+    42,
+    123,
+    2026
+  ],
+  "experiments": [
+    "paper_gate_f4",
+    "paper_gate_f8",
+    "paper_gate_f16",
+    "paper_gate_f32"
+  ],
+  "groups": {
+    "latent_size": [
+      "paper_gate_f4",
+      "paper_gate_f8",
+      "paper_gate_f16",
+      "paper_gate_f32"
+    ]
+  }
+}

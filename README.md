@@ -206,3 +206,7 @@ This codebase builds on Asymmetric VQGAN and Stable Diffusion components:
       primaryClass={cs.CV}
 }
 ```
+
+## TIGLDM6v4 source snapshot
+
+The [TIGLDM6v4 directory](TIGLDM6v4/) contains the supplied source snapshot dated 2026-11-03. See [SOURCE_SNAPSHOT.json](TIGLDM6v4/SOURCE_SNAPSHOT.json) for file hashes, excluded artifacts, and known differences from the manuscript. This snapshot has not been validated as the implementation that produced the paper results. The supplied source folder has empty scripts/tests directories; referenced training and evaluation entry points are therefore not included. Existing repository code remains available at its original paths.

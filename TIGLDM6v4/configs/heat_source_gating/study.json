@@ -1,0 +1,20 @@
+{
+  "protocol": "reviewer_v2",
+  "seeds": [
+    42,
+    123,
+    2026
+  ],
+  "groups": {
+    "gating": [
+      "g1_fixed",
+      "g2_scalar"
+    ]
+  },
+  "experiments": [
+    "g1_fixed",
+    "g2_scalar"
+  ],
+  "g3_config": "configs/heat_source_revision/full.json",
+  "g3_gate": "legacy non-learnable binary mask"
+}

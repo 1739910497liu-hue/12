@@ -1,0 +1,37 @@
+{
+  "seeds": [
+    42,
+    123,
+    2026
+  ],
+  "groups": {
+    "fusion": [
+      "fusion_plain",
+      "baseline"
+    ],
+    "perturbation": [
+      "perturb_none",
+      "perturb_small",
+      "baseline",
+      "perturb_large"
+    ],
+    "compression": [
+      "compression_f4",
+      "baseline",
+      "compression_f16"
+    ],
+    "codebook": [
+      "codebook_8192",
+      "baseline",
+      "codebook_32768"
+    ],
+    "condition": [
+      "perturb_none",
+      "condition_text",
+      "condition_numeric",
+      "condition_both"
+    ]
+  },
+  "unique_stage1_per_seed": 9,
+  "unique_stage2_per_seed": 12
+}

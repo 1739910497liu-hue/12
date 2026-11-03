@@ -1,0 +1,100 @@
+{
+  "protocol": "reviewer_v2",
+  "seeds": [
+    42,
+    123,
+    2026
+  ],
+  "groups": {
+    "fusion": [
+      "no_prior",
+      "plain",
+      "full"
+    ],
+    "perturbation": [
+      "perturb_none",
+      "perturb_small",
+      "full",
+      "perturb_large"
+    ],
+    "compression": [
+      "f4",
+      "full",
+      "f16"
+    ],
+    "codebook": [
+      "k8192",
+      "full",
+      "k32768"
+    ],
+    "condition": [
+      "condition_none",
+      "condition_text",
+      "condition_numeric",
+      "full"
+    ],
+    "report": [
+      "condition_numeric",
+      "full",
+      "report_raw"
+    ],
+    "comparison": [
+      "no_prior",
+      "plain",
+      "concat_condition",
+      "full"
+    ],
+    "hybrid": [
+      "perturb_none",
+      "simulation_hybrid"
+    ]
+  },
+  "experiments": [
+    "full",
+    "no_prior",
+    "plain",
+    "perturb_none",
+    "perturb_small",
+    "perturb_large",
+    "f4",
+    "f16",
+    "k8192",
+    "k32768",
+    "condition_none",
+    "condition_text",
+    "condition_numeric",
+    "concat_condition",
+    "report_raw",
+    "simulation_hybrid"
+  ],
+  "core": [
+    "no_prior",
+    "plain",
+    "full",
+    "perturb_none",
+    "perturb_small",
+    "perturb_large",
+    "f4",
+    "f16",
+    "k8192",
+    "k32768",
+    "condition_none",
+    "condition_text",
+    "condition_numeric"
+  ],
+  "core_stage1_per_seed": 10,
+  "core_stage2_per_seed": 13,
+  "all_stage1_per_seed": 11,
+  "all_stage2_per_seed": 16,
+  "runtime_steps": [
+    10,
+    20,
+    50,
+    100
+  ],
+  "runtime_warmup": 5,
+  "runtime_repeats": 30,
+  "runtime_batch_size": 1,
+  "deployment_deadline_ms": null,
+  "external_comparisons": "Require published implementation or real simulation fields; no fabricated results."
+}

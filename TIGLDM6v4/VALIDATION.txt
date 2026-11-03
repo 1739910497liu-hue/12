@@ -1,0 +1,9 @@
+Validation: factor=32 extension, 2026-09-28
+- Configurations and Python syntax checked; existing f4/f8/f16 JSON are byte-identical to deployed files.
+- f32 keeps K=16384, embed_dim=4 and paper spatial sigmoid/convex Gate; explicit U-Net depth exception [1,2,2,4].
+- CLI plans correct f32 stage1/stage2 paths, automatic resume, metadata checks and status reporting (8x8 latent, 64 tokens, active codes based on K).
+- Independent CPU validation compiled the ACTUAL staged models.py without patching it: f32 VQ encode/decode, four-level diffusion predict, backward and two-step sample passed; 621 finite gradient tensors.
+- Invalid f32 five-level U-Net fails clearly at construction, before model weights or CLIP are loaded.
+- Same-seed old/new f8 model states are identical: 267 VQ tensors and 698 diffusion tensors; post-construction RNG states identical; strict old-state loading succeeds.
+- Model smoke uses channels/unet_channels=32, numeric condition, real 256 images, embed_dim4, K16384, heads8 and context512. See MODEL_CPU_REPORT.json.
+No full-channel CUDA/BF16, CLIP, SS304 training, convergence, or image quality metrics were validated.

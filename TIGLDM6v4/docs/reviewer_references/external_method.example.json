@@ -1,0 +1,18 @@
+{
+  "method": "REPLACE_method_identifier",
+  "implementation_url": "REPLACE_with_original_implementation_URL",
+  "implementation_commit": "REPLACE_with_exact_commit",
+  "training_seed": 42,
+  "sample_seed": 2026,
+  "training_budget": "REPLACE_with_actual_updates_effective_batch_and_walltime",
+  "conditioning": "REPLACE_with_actual_text_numeric_and_spatial_inputs",
+  "pretrained_weights": "REPLACE_with_source_and_version_or_literal_none",
+  "sampling_steps": 50,
+  "image_size": 256,
+  "manifest_hashes": {
+    "train.jsonl": "REPLACE_with_sha256",
+    "val.jsonl": "REPLACE_with_sha256",
+    "test.jsonl": "REPLACE_with_sha256",
+    "numeric_stats.json": "REPLACE_with_sha256"
+  }
+}
